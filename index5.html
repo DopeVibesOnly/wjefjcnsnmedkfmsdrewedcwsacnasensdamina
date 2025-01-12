@@ -1,0 +1,550 @@
+<html><head><base href="."><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>&#x414;&#x43b;&#x44f; &#x410;&#x43c;&#x438;&#x43d;&#x44b;&#x2764;&#xfe0f;</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Comfortaa:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe6e6, #ffb3d9);
+  font-family: 'Comfortaa', cursive;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(255, 77, 148, 0.2);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid rgba(255, 77, 148, 0.3);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4d94, #ff1a75, #ff4d94);
+  animation: shimmer 2s linear infinite;
+}
+
+.header-title {
+  font-family: 'Caveat', cursive;
+  font-size: 3.2rem;
+  text-shadow: 2px 2px 15px rgba(255, 77, 148, 0.3);
+  margin-left: 2rem;
+  position: relative;
+  transition: all 0.5s ease;
+  color: #ff1a75;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-title span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.header-title span:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.header-title::before {
+  content: '🌹';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0;
+  left: -25px;
+  animation: sparkleNew 3s ease-in-out infinite;
+}
+
+.header-title::after {
+  content: '❤️';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0;
+  right: -25px;
+  animation: floatingHeart 2s ease-in-out infinite;
+  transform-origin: center;
+  transform: rotate(15deg);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  margin-right: 2rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(255, 77, 148, 0.15);
+  border: 2px solid rgba(255, 77, 148, 0.3);
+  backdrop-filter: none;
+}
+
+.nav-item {
+  color: #ff4d94;
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.7rem 1.2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-item:before {
+  content: '♥';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.nav-item:hover:before {
+  top: 5px;
+  opacity: 0.7;
+}
+
+.nav-item:hover {
+  transform: translateY(3px) scale(1.05);
+  background: #ff4d94;
+  color: white;
+  text-shadow: 0 2px 10px rgba(255, 77, 148, 0.3);
+  letter-spacing: 1px;
+  padding-top: 1.5rem;
+  box-shadow: 0 4px 15px rgba(255, 77, 148, 0.2);
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.floating-hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  font-size: 1.8rem;
+  position: fixed;
+  pointer-events: none;
+  animation: heart-float 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  z-index: 1;
+}
+
+.quiz-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  padding: 3rem;
+  box-shadow: 0 15px 40px rgba(255, 77, 148, 0.4);
+  border: 3px solid rgba(255, 77, 148, 0.3);
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  width: 100%;
+  transform: translateY(20px);
+  animation: float 3s ease-in-out infinite;
+}
+
+.question {
+  font-size: 1.5rem;
+  color: #ff1a75;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  text-shadow: 2px 2px 10px rgba(255,77,148,0.2);
+  animation: floatAndGlow 3s ease-in-out infinite;
+}
+
+.timer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  color: #ff4d94;
+  background: rgba(255,255,255,0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  border: 2px solid rgba(255,77,148,0.3);
+}
+
+.answers {
+  display: grid;
+  gap: 1rem;
+}
+
+.answer-btn {
+  padding: 1rem 2rem;
+  border: 2px solid rgba(255,77,148,0.3);
+  border-radius: 15px;
+  background: white;
+  color: #ff4d94;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  background: linear-gradient(135deg, #fff5f7, #fff);
+}
+
+.answer-btn::before {
+  content: '❤️';
+  position: absolute;
+  left: 15px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.answer-btn:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.answer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,77,148,0.2);
+}
+
+.answer-btn.correct {
+  background: #4CAF50;
+  color: white;
+  border-color: #45a049;
+}
+
+.answer-btn.incorrect {
+  background: #f44336;
+  color: white;
+  border-color: #da190b;
+}
+
+.quiz-complete {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 2.5rem;
+  color: #ff1a75;
+  padding: 2rem;
+  animation: modalOpen 0.5s ease-out forwards;
+}
+
+.quiz-complete p {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.heart-burst {
+  position: fixed;
+  pointer-events: none;
+  animation: sparkleOut 1s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1) rotate(15deg); }
+  25% { transform: scale(1.2) rotate(20deg); }
+  40% { transform: scale(1.1) rotate(17deg); }
+  60% { transform: scale(1.2) rotate(20deg); }
+  100% { transform: scale(1) rotate(15deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes sparkleNew {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.4) rotate(180deg); opacity: 0.8; }
+}
+
+@keyframes floatingHeart {
+  0%, 100% { transform: rotate(15deg) scale(1); }
+  50% { transform: rotate(25deg) scale(1.2); }
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translate(var(--startX), 120vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+    transform: translate(var(--moveX), 80vh) scale(1) rotate(180deg);
+  }
+  80% {
+    opacity: 0.6;
+    transform: translate(var(--endX), 20vh) scale(1) rotate(360deg);
+  }
+  100% {
+    transform: translate(var(--finalX), -20vh) scale(0.5) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+@keyframes sparkleOut {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes floatAndGlow {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    text-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+    text-shadow: 0 0 20px rgba(255, 77, 148, 0.6), 
+                 0 0 40px rgba(255, 77, 148, 0.3);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    text-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
+  }
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="header-title">
+    <span>&#x41c;</span><span>&#x43e;</span><span>&#x44f;</span>
+    <span style="margin: 0 0.5rem">&#x2661;</span>
+    <span>&#x410;</span><span>&#x43c;</span><span>&#x438;</span><span>&#x43d;</span><span>&#x430;</span>
+  </h1>
+  <nav class="nav-menu">
+    <a href="index2.html" class="nav-item">Галерея</a>
+    <a href="index3.html" class="nav-item">Конвертики</a>
+    <a href="index4.html" class="nav-item">Рисовашка</a>
+    <a href="index5.html" class="nav-item">Вопросы</a>
+  </nav>
+</header>
+
+<div class="main-content">
+  <div class="quiz-container">
+    <div class="timer">15</div>
+    <div class="question"></div>
+    <div class="answers"></div>
+  </div>
+  <div class="floating-hearts-container"></div>
+</div>
+
+<div class="floating-hearts-container"></div>
+
+<script>const questions = [{
+  question: "Какой мой любимый цвет?",
+  answers: ["Черный", "Синий", "Зеленый"],
+  correct: 0
+}, {
+  question: "Что я больше всего ценю в человеке?",
+  answers: ["Доброта", "Эмпатия", "Наличие работы"],
+  correct: 1
+}, {
+  question: "Дата нашего знакомства?",
+  answers: ["3 декабря", "5 декабря", "2 декабря"],
+  correct: 0
+}, {
+  question: "Что я люблю больше?",
+  answers: ["Амину", "Доту", "Кушать"],
+  correct: 0
+}, {
+  question: "Где мы с тобой будем отдыхать?",
+  answers: ["Турция", "Бали", "Америка"],
+  correct: 0
+}, {
+  question: "Какой мой любимый праздник?",
+  answers: ["Новый год", "День нашего знакомства", "День рождения"],
+  correct: 1
+}, {
+  question: "Моё любимое время дня?",
+  answers: ["Утро", "День", "Вечер"],
+  correct: 2
+}];
+let currentQuestion = 0;
+let timer = null;
+let timeLeft = 15;
+function showQuestion() {
+  const quizContainer = document.querySelector('.quiz-container');
+  const questionEl = quizContainer.querySelector('.question');
+  const answersEl = quizContainer.querySelector('.answers');
+  timeLeft = 15;
+  document.querySelector('.timer').textContent = timeLeft;
+  clearInterval(timer);
+  timer = setInterval(() => {
+    timeLeft--;
+    document.querySelector('.timer').textContent = timeLeft;
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      currentQuestion++;
+      if (currentQuestion >= questions.length) {
+        showCompletion();
+      } else {
+        showQuestion();
+      }
+    }
+  }, 1000);
+  questionEl.textContent = questions[currentQuestion].question;
+  answersEl.innerHTML = questions[currentQuestion].answers.map((answer, i) => `
+      <button class="answer-btn">${answer}</button>
+    `).join('');
+  const buttons = answersEl.querySelectorAll('.answer-btn');
+  buttons.forEach((button, i) => {
+    button.addEventListener('click', () => checkAnswer(i));
+  });
+}
+function checkAnswer(index) {
+  clearInterval(timer);
+  const buttons = document.querySelectorAll('.answer-btn');
+  const correct = questions[currentQuestion].correct;
+  createHeartBurst(buttons[index].getBoundingClientRect());
+  buttons[correct].classList.add('correct');
+  if (index !== correct) {
+    buttons[index].classList.add('incorrect');
+  }
+  buttons.forEach(btn => btn.disabled = true);
+  setTimeout(() => {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      showQuestion();
+    } else {
+      showCompletion();
+    }
+  }, 2000);
+}
+function showCorrectAnswer() {
+  currentQuestion++;
+  if (currentQuestion >= questions.length) {
+    showCompletion();
+  } else {
+    showQuestion();
+  }
+}
+function createHeartBurst(rect) {
+  if (!rect) return;
+  for (let i = 0; i < 10; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart-burst';
+    heart.innerHTML = '❤️';
+    heart.style.left = `${rect.left + rect.width / 2}px`;
+    heart.style.top = `${rect.top + rect.height / 2}px`;
+    heart.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg) translateY(${Math.random() * 100}px)`;
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
+  }
+}
+function showCompletion() {
+  clearInterval(timer);
+  const quizContainer = document.querySelector('.quiz-container');
+  quizContainer.innerHTML = `
+    <div class="quiz-complete">
+      <p>✨ Поздравляю ✨</p>
+      <p>Теперь ты знаешь обо мне немного больше!</p>
+      <p>Спасибо, что ты есть! 🌹</p>
+    </div>
+  `;
+}
+const allMessages = [];
+let heartInterval = setInterval(createHeartBurst, 2000);
+const headerTitle = document.querySelector('.header-title');
+headerTitle.addEventListener('mouseover', () => {
+  createHeartBurst(headerTitle.getBoundingClientRect());
+});
+headerTitle.addEventListener('mouseout', () => {
+  clearInterval(heartInterval);
+  heartInterval = setInterval(createHeartBurst, 2000);
+});
+document.addEventListener('click', e => {
+  if (e.target.tagName === 'BUTTON') {
+    createHeartBurst(e.target.getBoundingClientRect());
+  }
+});
+document.querySelectorAll('.header-title span').forEach(letter => {
+  letter.addEventListener('mouseover', () => {
+    createHeartBurst(letter.getBoundingClientRect());
+  });
+});
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerHTML = '❤️';
+  heart.style.left = `${Math.random() * window.innerWidth}px`;
+  heart.style.top = `${Math.random() * window.innerHeight}px`;
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 1000);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  showQuestion();
+});</script>
+
+</body></html>

@@ -1,0 +1,566 @@
+<html><head><base href="."><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>&#x414;&#x43b;&#x44f; &#x410;&#x43c;&#x438;&#x43d;&#x44b;&#x2764;&#xfe0f;</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Comfortaa:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe6e6, #ffb3d9);
+  font-family: 'Comfortaa', cursive;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(255, 77, 148, 0.2);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid rgba(255, 77, 148, 0.3);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4d94, #ff1a75, #ff4d94);
+  animation: shimmer 2s linear infinite;
+}
+
+.header-title {
+  font-family: 'Caveat', cursive;
+  font-size: 3.2rem;
+  text-shadow: 2px 2px 15px rgba(255, 77, 148, 0.3);
+  margin-left: 2rem;
+  position: relative;
+  transition: all 0.5s ease;
+  color: #ff1a75;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-title span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.header-title span:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.header-title::before {
+  content: '🌹';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0;
+  left: -25px;
+  animation: sparkleNew 3s ease-in-out infinite;
+}
+
+.header-title::after {
+  content: '❤️';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0;
+  right: -25px;
+  animation: floatingHeart 2s ease-in-out infinite;
+  transform-origin: center;
+  transform: rotate(15deg);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  margin-right: 2rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(255, 77, 148, 0.15);
+  border: 2px solid rgba(255, 77, 148, 0.3);
+  backdrop-filter: none;
+}
+
+.nav-item {
+  color: #ff4d94;
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.7rem 1.2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-item:before {
+  content: '♥';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.nav-item:hover:before {
+  top: 5px;
+  opacity: 0.7;
+}
+
+.nav-item:hover {
+  transform: translateY(3px) scale(1.05);
+  background: #ff4d94;
+  color: white;
+  text-shadow: 0 2px 10px rgba(255, 77, 148, 0.3);
+  letter-spacing: 1px;
+  padding-top: 1.5rem;
+  box-shadow: 0 4px 15px rgba(255, 77, 148, 0.2);
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.love-card {
+  background: rgb(255, 255, 255);
+  border-radius: 25px;
+  padding: 2.5rem;
+  max-width: 650px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(255, 77, 148, 0.2);
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  border: 3px solid #ff4d94;
+}
+
+.love-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,77,148,0.15), transparent);
+  transform: rotate(45deg);
+  animation: shine 4s infinite;
+}
+
+.love-card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: 0 20px 50px rgba(255, 77, 148, 0.25);
+  border-color: rgba(255, 77, 148, 0.4);
+}
+
+.love-message {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.love-message::after {
+  content: '✨';
+  position: absolute;
+  bottom: -30px;
+  right: 20px;
+  font-size: 1.5rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.floating-hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decoration {
+  position: absolute;
+  font-size: 5rem;
+  opacity: 0.1;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.decoration:hover {
+  animation-play-state: paused;
+  transform: scale(1.2);
+  opacity: 0.3;
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1) rotate(15deg); }
+  25% { transform: scale(1.2) rotate(20deg); }
+  40% { transform: scale(1.1) rotate(17deg); }
+  60% { transform: scale(1.2) rotate(20deg); }
+  100% { transform: scale(1) rotate(15deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkleNew {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.4) rotate(180deg); opacity: 0.8; }
+}
+
+@keyframes floatingHeart {
+  0%, 100% { transform: rotate(15deg) scale(1); }
+  50% { transform: rotate(25deg) scale(1.2); }
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translate(var(--startX), 120vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+    transform: translate(var(--moveX), 80vh) scale(1) rotate(180deg);
+  }
+  80% {
+    opacity: 0.6;
+    transform: translate(var(--endX), 20vh) scale(1) rotate(360deg);
+  }
+  100% {
+    transform: translate(var(--finalX), -20vh) scale(0.5) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: fixed;
+  font-size: 2.5rem;
+  pointer-events: none;
+  animation: heart-float 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  z-index: 1;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+/* Adding interactive sparkles on click */
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  animation: sparkleOut 1s forwards;
+}
+
+@keyframes sparkleOut {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes floatAndGlow {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    text-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+    text-shadow: 0 0 20px rgba(255, 77, 148, 0.6), 
+                 0 0 40px rgba(255, 77, 148, 0.3);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    text-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
+  }
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.photo-card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 77, 148, 0.15);
+  transform: rotate(var(--rotation));
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid rgba(255, 77, 148, 0.3);
+}
+
+.photo-card::before {
+  content: '❤️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 5rem;
+  z-index: 2;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photo-card:hover::before {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.photo-card:hover {
+  border-color: #ff4d94;
+  box-shadow: 0 15px 40px rgba(255, 77, 148, 0.3);
+  transform: translateY(-10px) rotate(var(--rotation));
+}
+
+.photo-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.photo-card:hover .photo-content {
+  opacity: 1;
+}
+
+.photo-img {
+  width: 90%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(255, 77, 148, 0.2);
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover .photo-img {
+  transform: scale(1.05);
+}
+
+.photo-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ff4d94;
+  line-height: 1.4;
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 77, 148, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease 0.2s;
+}
+
+.photo-card:hover .photo-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0) rotate(var(--rotation)); }
+  50% { transform: translateY(-10px) rotate(var(--rotation)); }
+}
+
+.photo-card.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(var(--rotation));
+  animation: float-card 4s ease-in-out infinite;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="header-title">
+    <span>&#x41c;</span><span>&#x43e;</span><span>&#x44f;</span>
+    <span style="margin: 0 0.5rem">&#x2661;</span>
+    <span>&#x410;</span><span>&#x43c;</span><span>&#x438;</span><span>&#x43d;</span><span>&#x430;</span>
+  </h1>
+  <nav class="nav-menu">
+    <a href="index2.html" class="nav-item">Галерея</a>
+    <a href="index3.html" class="nav-item">Конвертики</a>
+    <a href="index4.html" class="nav-item">Рисовашка</a>
+    <a href="index5.html" class="nav-item">Вопросы</a>
+  </nav>
+</header>
+
+<div class="main-content">
+  <div class="gallery-container">
+    <div class="photo-card visible" style="--rotation: -3deg">
+      <div class="photo-content">
+        <img src="https://www.dropbox.com/scl/fi/q2fhq20epf3gz982ctlm9/photo_2024-12-31_02-41-01.jpg?rlkey=2l7p64w0p9hde8iw29okmi1t8&st=6mb1xm6k&dl=1" alt="Memory 1" class="photo-img">
+        <p class="photo-text">Какие вы здесь хорошенькие!! Не знаю, какие у вас сейчас отношения с сестрой, но надеюсь, что всё хорошо.</p>
+      </div>
+    </div>
+    <div class="photo-card visible" style="--rotation: 2deg">
+      <div class="photo-content">
+        <img src="https://www.dropbox.com/scl/fi/ifm70twyt9ub56vidz3rc/photo_2025-01-08_16-52-10.jpg?rlkey=w792tdy2o7n1s6y4jhpx737bj&st=2593cpdm&dl=1" alt="Memory 2" class="photo-img">
+        <p class="photo-text">Не одному ли мне, в мультике рапунцель, нравилась сама рапунцель?? Длинные волосы, красивая, прекрасная, и здесь ситуация такая же.</p>
+      </div>
+    </div>
+    <div class="photo-card visible" style="--rotation: -2deg">
+      <div class="photo-content">
+        <img src="https://www.dropbox.com/scl/fi/6mb2u472cildo45bno32i/photo_2025-01-12_12-41-54.jpg?rlkey=18lx4mwr20yfga3t8h0vjhtz7&st=aw76xauf&dl=1" alt="Memory 3" class="photo-img">
+        <p class="photo-text">Ааааа, ну что ж за милашка, крашиха всей школы, скромная читательница эротичных манхв..</p>
+      </div>
+    </div>
+    <div class="photo-card visible" style="--rotation: 3deg">
+      <div class="photo-content">
+        <img src="https://www.dropbox.com/scl/fi/itpw3keev8x0dqw7ynndj/photo_2025-01-12_12-46-25-1.jpg?rlkey=vtfi8iyon07axlfbxn189pnky&st=zp4p7iv3&dl=1" alt="Memory 4" class="photo-img">
+        <p class="photo-text">Женщина, ваша улыбка очень красивая, прошу, улыбайтесь чаще.</p>
+      </div>
+    </div>
+    <div class="photo-card visible" style="--rotation: -1deg">
+      <div class="photo-content">
+        <img src="https://www.dropbox.com/scl/fi/646zi3mjr7d0nms91trs1/photo_2025-01-12_12-54-30.jpg?rlkey=g2doplduwwkt9ncmqa3mb32lr&st=kkjporbq&dl=1" alt="Memory 5" class="photo-img">
+        <p class="photo-text">Кажется, я тебя где-то уже встречал.. Аа, точно, в словаре, рядом со словом "шикарная".</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="floating-hearts-container"></div>
+
+<script>function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'floating-heart';
+  const heartSymbols = ['💝', '💖', '💕', '💗', '💓', '💜'];
+  heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+  const startX = Math.random() * 100;
+  const moveX = startX + (Math.random() * 40 - 20);
+  const endX = moveX + (Math.random() * 40 - 20);
+  const finalX = endX + (Math.random() * 40 - 20);
+  heart.style.setProperty('--startX', `${startX}vw`);
+  heart.style.setProperty('--moveX', `${moveX}vw`);
+  heart.style.setProperty('--endX', `${endX}vw`);
+  heart.style.setProperty('--finalX', `${finalX}vw`);
+  heart.style.left = '0';
+  heart.style.animationDuration = Math.random() * 4 + 6 + 's';
+  heart.style.transform = `scale(${Math.random() * 0.7 + 0.5})`;
+  document.querySelector('.floating-hearts-container').appendChild(heart);
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+}
+setInterval(createHeart, 600);
+const headerTitle = document.querySelector('.header-title');
+headerTitle.addEventListener('mouseover', () => {
+  headerTitle.style.animation = 'floatAndGlow 2s ease-in-out infinite';
+});
+headerTitle.addEventListener('mouseout', () => {
+  headerTitle.style.animation = '';
+});
+document.addEventListener('click', e => {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.innerHTML = '✨';
+  sparkle.style.fontSize = '2rem';
+  sparkle.style.left = e.pageX - 10 + 'px';
+  sparkle.style.top = e.pageY - 10 + 'px';
+  document.body.appendChild(sparkle);
+  setTimeout(() => {
+    sparkle.remove();
+  }, 1000);
+});
+document.querySelectorAll('.header-title span').forEach(letter => {
+  letter.addEventListener('mouseover', () => {
+    letter.style.transform = 'scale(1.2) rotate(' + (Math.random() * 20 - 10) + 'deg)';
+    letter.style.color = `hsl(${Math.random() * 30 + 330}, 100%, 50%)`;
+  });
+  letter.addEventListener('mouseout', () => {
+    letter.style.transform = 'scale(1) rotate(0)';
+    letter.style.color = '';
+  });
+});
+function checkScroll() {
+  const cards = document.querySelectorAll('.photo-card');
+  const triggerBottom = window.innerHeight * 0.9;
+  cards.forEach((card, index) => {
+    const cardTop = card.getBoundingClientRect().top;
+    if (cardTop < triggerBottom) {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, index * 200);
+    }
+  });
+}
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);</script>
+
+</body></html>

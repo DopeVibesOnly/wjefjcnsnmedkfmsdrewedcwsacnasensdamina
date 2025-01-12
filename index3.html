@@ -1,0 +1,477 @@
+<html><head><base href="."><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>&#x414;&#x43b;&#x44f; &#x410;&#x43c;&#x438;&#x43d;&#x44b;&#x2764;&#xfe0f;</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Comfortaa:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe6e6, #ffb3d9);
+  font-family: 'Comfortaa', cursive;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(255, 77, 148, 0.2);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid rgba(255, 77, 148, 0.3);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4d94, #ff1a75, #ff4d94);
+  animation: shimmer 2s linear infinite;
+}
+
+.header-title {
+  font-family: 'Caveat', cursive;
+  font-size: 3.2rem;
+  text-shadow: 2px 2px 15px rgba(255, 77, 148, 0.3);
+  margin-left: 2rem;
+  position: relative;
+  transition: all 0.5s ease;
+  color: #ff1a75;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-title span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.header-title span:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.header-title::before {
+  content: '🌹';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0;
+  left: -25px;
+  animation: sparkleNew 3s ease-in-out infinite;
+}
+
+.header-title::after {
+  content: '❤️';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 0;
+  right: -25px;
+  animation: floatingHeart 2s ease-in-out infinite;
+  transform-origin: center;
+  transform: rotate(15deg);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  margin-right: 2rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(255, 77, 148, 0.15);
+  border: 2px solid rgba(255, 77, 148, 0.3);
+  backdrop-filter: none;
+}
+
+.nav-item {
+  color: #ff4d94;
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 0.7rem 1.2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-item:before {
+  content: '♥';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.nav-item:hover:before {
+  top: 5px;
+  opacity: 0.7;
+}
+
+.nav-item:hover {
+  transform: translateY(3px) scale(1.05);
+  background: #ff4d94;
+  color: white;
+  text-shadow: 0 2px 10px rgba(255, 77, 148, 0.3);
+  letter-spacing: 1px;
+  padding-top: 1.5rem;
+  box-shadow: 0 4px 15px rgba(255, 77, 148, 0.2);
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px);
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.floating-hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  font-size: 1.8rem;
+  position: fixed;
+  pointer-events: none;
+  animation: heart-float 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  z-index: 1;
+}
+
+.floating-envelope {
+  position: fixed;
+  font-size: 6rem;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: envelope-float 15s linear infinite;
+  z-index: 1000;
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1) rotate(15deg); }
+  25% { transform: scale(1.2) rotate(20deg); }
+  40% { transform: scale(1.1) rotate(17deg); }
+  60% { transform: scale(1.2) rotate(20deg); }
+  100% { transform: scale(1) rotate(15deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.2) rotate(180deg); opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkleNew {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.4) rotate(180deg); opacity: 0.8; }
+}
+
+@keyframes floatingHeart {
+  0%, 100% { transform: rotate(15deg) scale(1); }
+  50% { transform: rotate(25deg) scale(1.2); }
+}
+
+@keyframes heart-float {
+  0% {
+    transform: translate(var(--startX), 120vh) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+    transform: translate(var(--moveX), 80vh) scale(1) rotate(180deg);
+  }
+  80% {
+    opacity: 0.6;
+    transform: translate(var(--endX), 20vh) scale(1) rotate(360deg);
+  }
+  100% {
+    transform: translate(var(--finalX), -20vh) scale(0.5) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+@keyframes sparkleOut {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes floatAndGlow {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    text-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+    text-shadow: 0 0 20px rgba(255, 77, 148, 0.6), 
+                 0 0 40px rgba(255, 77, 148, 0.3);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    text-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
+  }
+}
+
+@keyframes envelope-float {
+  0% {
+    transform: translate(var(--startX), var(--startY)) rotate(var(--rotate)) scale(1);
+  }
+  50% {
+    transform: translate(var(--midX), var(--midY)) rotate(calc(var(--rotate) + 180deg)) scale(1.2);
+  }
+  100% {
+    transform: translate(var(--endX), var(--endY)) rotate(calc(var(--rotate) + 360deg)) scale(1);
+  }
+}
+
+.envelope-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #fff, #fff5f8);
+  padding: 3rem;
+  border-radius: 25px;
+  box-shadow: 0 10px 50px rgba(255, 77, 148, 0.4);
+  z-index: 1001; 
+  max-width: 600px;
+  width: 90%;
+  display: none;
+  border: 3px solid #ff4d94;
+}
+
+.envelope-modal.active {
+  display: block;
+  animation: modalOpen 0.4s ease-out;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+}
+
+.modal-content {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #ff1a75;
+  font-family: 'Caveat', cursive;
+  text-align: center;
+  padding: 1rem;
+  animation: floatAndGlow 3s ease-in-out infinite;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ff4d94;
+  border: none;
+  background: none;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+}
+
+.modal-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="header-title">
+    <span>&#x41c;</span><span>&#x43e;</span><span>&#x44f;</span>
+    <span style="margin: 0 0.5rem">&#x2661;</span>
+    <span>&#x410;</span><span>&#x43c;</span><span>&#x438;</span><span>&#x43d;</span><span>&#x430;</span>
+  </h1>
+  <nav class="nav-menu">
+    <a href="index2.html" class="nav-item">Галерея</a>
+    <a href="index3.html" class="nav-item">Конвертики</a>
+    <a href="index4.html" class="nav-item">Рисовашка</a>
+    <a href="index5.html" class="nav-item">Вопросы</a>
+  </nav>
+</header>
+
+<div class="main-content">
+  <div class="floating-hearts-container"></div>
+</div>
+
+<div class="floating-hearts-container"></div>
+
+<script>const allMessages = ["Каждое мгновение с тобой - бесценно ❤️", "Ты делаешь этот мир ярче своей улыбкой ✨", "В моём сердце всегда есть место для тебя 💖", "Твоя любовь делает меня счастливее 💗", "Ты - мой самый прекрасный сон 🌙", "Напомни-ка мне, что значит скука, а то я забыл про неё после нашего знакомства.", "Ты - моё самое большое счастье 🎀", "Ты делаешь меня лучше каждый день 💝", "Твоя улыбка освещает мой мир ✨", "Спасибо, что ты есть в моей жизни 💖", "Ты - мой самый дорогой человек 💗", "С тобой я чувствую себя по-настоящему живым 💓", "Ты - моё самое прекрасное приключение 🌟", "Твоя любовь - моё самое большое сокровище 💝", "Ты - причина моего счастья 💕", "Каждый момент с тобой бесценен 💖", "Ты - моя самая красивая мечта 💗"];
+let usedMessages = new Set();
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'floating-heart';
+  const heartSymbols = ['💝', '💖', '💕', '💗', '💓', '💜'];
+  heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+  const startX = Math.random() * 100;
+  const moveX = startX + (Math.random() * 40 - 20);
+  const endX = moveX + (Math.random() * 40 - 20);
+  const finalX = endX + (Math.random() * 40 - 20);
+  heart.style.setProperty('--startX', `${startX}vw`);
+  heart.style.setProperty('--moveX', `${moveX}vw`);
+  heart.style.setProperty('--endX', `${endX}vw`);
+  heart.style.setProperty('--finalX', `${finalX}vw`);
+  heart.style.left = '0';
+  heart.style.animationDuration = Math.random() * 4 + 6 + 's';
+  heart.style.transform = `scale(${Math.random() * 0.7 + 0.5})`;
+  document.querySelector('.floating-hearts-container').appendChild(heart);
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+}
+function showEnvelopeContent(envelope) {
+  const modal = document.createElement('div');
+  modal.className = 'envelope-modal active';
+  let availableMessages = allMessages.filter(msg => !usedMessages.has(msg));
+  if (availableMessages.length === 0) {
+    usedMessages.clear();
+    availableMessages = [...allMessages];
+  }
+  const randomMessage = availableMessages[Math.floor(Math.random() * availableMessages.length)];
+  usedMessages.add(randomMessage);
+  modal.innerHTML = `
+    <button class="modal-close">×</button>
+    <div class="modal-content">${randomMessage}</div>
+  `;
+  document.body.appendChild(modal);
+  envelope.remove();
+  createEnvelope();
+  modal.querySelector('.modal-close').addEventListener('click', () => {
+    modal.classList.remove('active');
+    setTimeout(() => modal.remove(), 400);
+  });
+}
+function initEnvelopes() {
+  document.querySelectorAll('.floating-envelope').forEach(env => env.remove());
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => createEnvelope(), i * 100);
+  }
+}
+function createEnvelope() {
+  const envelope = document.createElement('div');
+  envelope.className = 'floating-envelope';
+  envelope.innerHTML = '✉️';
+  const padding = 50;
+  const viewWidth = window.innerWidth - 100;
+  const viewHeight = window.innerHeight - 100;
+  const startX = Math.random() * viewWidth;
+  const startY = Math.random() * viewHeight;
+  const endX = Math.random() * viewWidth;
+  const endY = Math.random() * viewHeight;
+  const midX = (startX + endX) / 2 + (Math.random() - 0.5) * 200;
+  const midY = (startY + endY) / 2 + (Math.random() - 0.5) * 200;
+  envelope.style.setProperty('--startX', `${startX}px`);
+  envelope.style.setProperty('--startY', `${startY}px`);
+  envelope.style.setProperty('--midX', `${midX}px`);
+  envelope.style.setProperty('--midY', `${midY}px`);
+  envelope.style.setProperty('--endX', `${endX}px`);
+  envelope.style.setProperty('--endY', `${endY}px`);
+  envelope.style.setProperty('--rotate', `${Math.random() * 360}deg`);
+  envelope.style.left = `${startX}px`;
+  envelope.style.top = `${startY}px`;
+  envelope.addEventListener('click', () => showEnvelopeContent(envelope));
+  document.body.appendChild(envelope);
+  envelope.addEventListener('animationend', () => {
+    envelope.remove();
+    createEnvelope();
+  });
+}
+initEnvelopes();
+let heartInterval = setInterval(createHeart, 1000);
+const headerTitle = document.querySelector('.header-title');
+headerTitle.addEventListener('mouseover', () => {
+  headerTitle.style.animation = 'floatAndGlow 2s ease-in-out infinite';
+});
+headerTitle.addEventListener('mouseout', () => {
+  headerTitle.style.animation = '';
+});
+document.addEventListener('click', e => {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.innerHTML = '✨';
+  sparkle.style.fontSize = '2rem';
+  sparkle.style.left = e.pageX - 10 + 'px';
+  sparkle.style.top = e.pageY - 10 + 'px';
+  document.body.appendChild(sparkle);
+  setTimeout(() => {
+    sparkle.remove();
+  }, 1000);
+});
+document.querySelectorAll('.header-title span').forEach(letter => {
+  letter.addEventListener('mouseover', () => {
+    letter.style.transform = 'scale(1.2) rotate(' + (Math.random() * 20 - 10) + 'deg)';
+    letter.style.color = `hsl(${Math.random() * 30 + 330}, 100%, 50%)`;
+  });
+  letter.addEventListener('mouseout', () => {
+    letter.style.transform = 'scale(1) rotate(0)';
+    letter.style.color = '';
+  });
+});</script>
+
+</body></html>
